@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="hi">{{message}}</div>
+
+        <!-- 用 v-on 指令監聽DOM事件,並在觸發時執行程式 -->
+        <ul>
+            <li v-for="man in family" v-on:click="myFather(man.father)">
+                {{man.father}}
+            </li>
+            <!--1. v-for: 先傾印出family陣列中每筆資料＆存入man裡,然後讀取出man裡的father資料 -->
+            <!--2. v-on: 針對man裡的father資料做事件監聽, 並在觸發時執行程式 -->
+        </ul>
+
+        <ul>
+            <li v-for="woman in family" v-on:click="myMother(woman.mother)">
+                {{woman.mother}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, World',
+                //members: ['father', 'mother', 'brother'],
+                family:
+                    [{ father: 'David', mother: 'Jane' },
+                    { father: 'Leo', mother: 'Louise' },
+                    { father: 'Bobson', mother:'Mary' }]
+            },
+
+            //事件監聽寫法,function都要註冊在methods中
+            //先寫好function再到要註冊事件的地方寫入事件
+            methods: {
+                myFather: function (father) {
+                    alert('My father is:' + father)
+                },
+                /*等於
+                function myFather(father){
+                    alert('My father is:' + father)}*/
+                
+                myMother:function(mother){
+                    alert('My mother is:' + mother)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

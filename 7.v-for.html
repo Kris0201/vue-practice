@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="hi">{{message}}</div>
+        <ul>
+            <li v-for="member in members">
+                {{member}}
+            </li>
+            <!-- 記得放入變數在li中 -->
+            <!-- members表示要跑for的陣列, member(可為任何變數名稱)做為承接從members陣列中取出的每個值的變數 -->
+        </ul>
+
+        <!-- v-for:傾印出陣列中物件方法 -->
+        <ul>
+            <li v-for="man in family">
+                {{man.father}}
+            </li>
+            <li v-for="woman in family">
+                {{woman.mother}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, World',
+                members: ['father', 'mother', 'brother'],
+                family:
+                    [{ father: 'David', mother: 'Jane' },
+                    { father: 'Leo', mother: 'Louise' },
+                    { father: 'Bobson' }]
+            }
+        });
+    </script>
+</body>
+
+</html>
