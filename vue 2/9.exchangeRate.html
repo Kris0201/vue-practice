@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exchange rate</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" placeholder="請輸入台幣金額" v-model="NT">
+        <ul>
+            <li>日幣：{{japan}}</li>
+            
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        //先規劃出要做的功能：匯率轉換
+        //在文字欄位輸入數值時, 下方即時出現相對應幣別
+        
+        //使用computed寫法：
+        var app=new Vue({
+            el: '#app',
+            data:{
+                NT:''
+            },
+            computed:{
+                japan: function(){
+                    return this.NT/0.28
+                }//this就是function執行當下外層的物件 
+            }
+        })
+        //computed與methods不同點：computed不能帶任何參數,methods可以
+        
+        
+        //寫在html中的寫法：
+        //<li>美金：{{NT/33}}</li>
+
+        // var app=new Vue({
+        //     el:'#app',
+        //     data:{
+        //         NT:'', //輸入的台幣金額初始值
+
+        //     }
+        // })
+        //不採取直接寫入html的方式是考量有較複雜運算時,應盡量維持編碼簡潔可讀,故採computed方式處理
+
+    </script>
+</body>
+
+</html>

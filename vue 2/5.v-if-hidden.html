@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>v-if</title>
 </head>
 <body>
 <div id="app">
-    {{message}}
-    <div class="box" style="color: red">
-    {{messages}}
-    </div>
+    <div class="hi">{{message}}</div>
+    <div v-if="loading">訊息載入錯誤</div>
+    
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script>
     var app=new Vue({
         el:'#app',
         data: {
-            message: 'Hello, World'
+            message: 'Hello, World',
+            loading: false
+            //v-if+boolean:預設為true, 會顯示;設定為false會隱藏（連DOM元素一起隱藏）
+            //v-show與v-if類似,惟不會隱藏DOM元素
         }
     });
 </script>

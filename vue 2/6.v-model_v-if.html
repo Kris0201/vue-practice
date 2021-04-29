@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="score">請輸入分數
+    <div v-if="score>=60">及格了</div>
+    <div v-else="score<=59">不及格</div>
+    <!-- 另一種寫法<div v-if="score<=59">不及格</div> -->
+
+    <!--v-model 是綁定在表單元件或自訂元件上，為實現雙向綁定用的。表單元件像是<input>、<select>和<textarea>,在v-model中輸入的值的資料會同步更新到具相同名稱的值上-->
+    
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    var app=new Vue({
+        el:'#app',
+        data: {
+            message: 'Hello, World',
+            score: ''
+            
+        }
+    });
+</script>
+</body>
+</html>

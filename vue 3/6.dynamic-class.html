@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #ddd;
+            max-width: 960px;
+            margin: 20px auto; 
+        }
+
+        p, h3, ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex; /*打橫*/
+            align-items: center;  /*所有元素垂直置中*/
+            justify-content: space-between; /*元素間等比間隔*/
+        }
+
+        li.fav{
+            background: #ff9ed2;
+            color: #fff;
+        }
+        
+        
+    </style>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+    <h2>hello, Vue</h2>
+    <div id="app">
+
+<!-- 動態class綁定，book中的isFav為true就添加class name "fav"-->
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in filteredBooks" @click="add2Fav(book)" :class="{fav: book.isFav}">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                    <img :src="book.img" alt="book.title">
+                  <!--原本傾印的陣列為books，但因為加入了濾除條件filter，因此必須從加了濾除條件的物件去做傾印  -->
+                </li>
+
+                <!-- <li v-for="book in books" :class="{fav: book.isFav}">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                    <img :src="book.img" alt="book.title">
+                     -->
+                </li>
+            </ul>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">
+            hide books</span>
+            <span v-else>show books</span>
+        </button>
+        
+        
+        
+
+    </div>
+
+
+
+
+
+
+    <script src="/6.dynamic-class.js "></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        
+        
+    </style>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+    <h2>hello, Vue</h2>
+    <div id="app">
+        <!-- attribute binding 動態屬性綁定 -->
+        <a v-bind:href="url" target="_blank">weather </a>
+        <!-- v-bind縮寫為 :href -->
+
+
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in books">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                    <img :src="book.img" alt="book.title">
+                    
+                </li>
+            </ul>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">
+            hide books</span>
+            <span v-else>show books</span>
+        </button>
+        
+        
+        
+
+    </div>
+
+
+
+
+
+
+    <script src="/5.v-bind.js "></script>
+</body>
+
+</html>

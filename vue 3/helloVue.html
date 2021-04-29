@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+    <h2>hello, Vue</h2>
+    <div id="app">
+        <p>{{user}}</p>
+        <p>{{title}}</p>
+        <p>{{times}}</p>
+        <button @click="times++">register times</button>
+        <button @click="times--">register times</button>
+        <!-- 變數要顯示在瀏覽器上時才需要{{}} -->
+        <!-- <div @click="changeUser()">change user</div> -->
+        <div @click="changeUser('Dimitri')">change user</div>
+        <!-- 事件中帶入參數 -->
+    </div>
+
+
+
+
+
+    <script src="/app.js "></script>
+</body>
+
+</html>

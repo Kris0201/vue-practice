@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+    <h2>hello, Vue</h2>
+    <div id="app">
+        <div v-if="showInfo">
+            <p>{{title}} - {{user}} - {{times}}</p>
+        </div>
+        <button @click="toggleShowInfo">
+            <span v-if="showInfo" :style="{color:color}">hide info</span>
+            <span v-else>show info</span>
+            <!-- 等於<span v-if="showInfo ==false">show info</span> -->
+            <!-- 等於<span v-if="!showInfo">show info</span> -->
+        </button>
+
+    </div>
+
+    <!-- v-if的hidden / show會整個移除/插入dom元素 -->
+
+
+
+
+
+    <script src="/2.toggleApp.js "></script>
+</body>
+
+</html>
